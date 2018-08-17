@@ -17,7 +17,8 @@ tags:
 
 1. [recompose](https://github.com/acdlite/recompose)
 2. [styled-components](https://github.com/styled-components)
-
+3. [color](https://github.com/Qix-/color) : 处理color // todo 优化处理
+4. [polished](https://github.com/styled-components/polished): 处理css color
 #### 测试
 
 1. [enzyme](https://github.com/airbnb/enzyme): a testing utility for React
@@ -40,12 +41,24 @@ tags:
 1. 采用`markdown`格式编写
 2. 使用[bushing](https://github.com/benjycui/bisheng) 将`.md`文件转为`SPA`页面
 
+#### 函数库
+
+1. [Ramda](https://github.com/ramda/ramda)
+
+#### 函数式编程
+
+1. [ramda](http://www.ruanyifeng.com/blog/2017/03/ramda.html)
+2. [pointfree](http://www.ruanyifeng.com/blog/2017/03/pointfree.html)
+3. [favoring-curry](https://fr.umio.us/favoring-curry/)
+
 #### 杂项
 
 1. 文件目录方式
 2. icon采用svg格式
 3. 探索：无障碍设计
 4. [markdown](https://github.com/eslint/eslint-plugin-markdown)
+5. [色彩概念浅析](https://zhuanlan.zhihu.com/p/37886920)
+6. [RGB、HSL、Hex 網頁色彩碼](http://csscoke.com/2015/01/01/rgb-hsl-hex/)
 
 #### 编辑器插件
 
