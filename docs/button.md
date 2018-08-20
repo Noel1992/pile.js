@@ -221,6 +221,86 @@ ReactDOM.render(
 );
 ```
 
+### block
+
+> 块状button,填充parent
+
+**场景** : 页面独立操作按钮
+
+```jsx harmony
+import React from 'react';
+import {Button} from 'pile-ui'
+
+ReactDOM.render(
+  <div className='demo-button' >
+    <Button block>Normal</Button>{' '}
+    <Button type='primary' block>Primary</Button>{' '}
+    <Button type='success' block>Success</Button>{' '}
+    <Button type='info' reverse block>Info</Button>{' '}
+    <Button type='warning' reverse block>Warning</Button>{' '}
+    <Button type='danger' reverse block>Danger</Button>
+  </div>,
+  mountNode
+);
+```
+
+```jsx
+import React from 'react';
+import {Button} from 'pile-ui'
+
+ReactDOM.render(
+  <div className='demo-button' >
+    <Button block>Normal</Button>{' '}
+    <Button type='primary' block>Primary</Button>{' '}
+    <Button type='success' block>Success</Button>{' '}
+    <Button type='info' reverse block>Info</Button>{' '}
+    <Button type='warning' reverse block>Warning</Button>{' '}
+    <Button type='danger' reverse block>Danger</Button>
+  </div>,
+  mountNode
+);
+```
+
+### disabled
+
+> 按钮禁用状态
+
+**场景** : 禁用按钮点击事件
+
+```jsx harmony
+import React from 'react';
+import {Button} from 'pile-ui'
+
+ReactDOM.render(
+  <div>
+    <Button disabled>Normal</Button>{' '}
+    <Button type='primary' disabled>Primary</Button>{' '}
+    <Button type='success' disabled>Success</Button>{' '}
+    <Button type='info' disabled>Info</Button>{' '}
+    <Button type='warning' disabled>Warning</Button>{' '}
+    <Button type='danger' disabled>Danger</Button>{' '}
+  </div>,
+  mountNode
+);
+```
+
+```jsx
+import React from 'react';
+import {Button} from 'pile-ui'
+
+ReactDOM.render(
+  <div>
+    <Button disabled>Normal</Button>{' '}
+    <Button type='primary' disabled>Primary</Button>{' '}
+    <Button type='success' disabled>Success</Button>{' '}
+    <Button type='info' disabled>Info</Button>{' '}
+    <Button type='warning' disabled>Warning</Button>{' '}
+    <Button type='danger' disabled>Danger</Button>{' '}
+  </div>,
+  mountNode
+);
+```
+
 
 ## API
 

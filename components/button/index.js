@@ -44,10 +44,16 @@ const sizeProps = ({ size }) => {
   return css`
     padding: ${sizes.paddingX} ${sizes.paddingY};
     font-size: ${sizes.fontSize};
-    line-height: ${sizes.lineHeight};
     border-radius: ${sizes.borderRadius};
   `;
 };
+
+const blockProps = ({ block }) => (block ? css`
+    display: block;
+    width: 100%;
+  ` : null);
+
+const disabledProps = ({ disabled }) => (disabled ? { opacity: `${buttonTheme.common.disabledOpacity}` } : null);
 
 const getText = ({ text }) => {
   if (text) {
@@ -69,6 +75,8 @@ const ButtonStyled = styled.button`
   ${getStyles};
   ${getDashed};
   ${getText};
+  ${blockProps};
+  ${disabledProps};
 `;
 
 

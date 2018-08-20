@@ -103,6 +103,7 @@ export const buttonTheme = {
     fontWeight: buttonFontWeight,
     lineHeight: buttonLineHeight,
     borderWidth: buttonBorderWidth,
+    disabledOpacity: buttonDisabledOpacity,
   },
   colorScheme: {
     normal: {
