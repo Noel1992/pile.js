@@ -26,13 +26,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && lint-staged",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -e $GIT_PARAMS"
     }
   },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
+      "test",
       "git add"
     ]
   },
