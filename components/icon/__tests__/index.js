@@ -2,7 +2,7 @@
  * @author renmaomin@126.com
  */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, render } from 'enzyme';
 import Icon from '..';
 
 describe('Button suite', () => {
@@ -11,7 +11,7 @@ describe('Button suite', () => {
     expect(wrapper).toMatchSnapshot();
   });
   it('render a big icon', () => {
-    const wrapper = shallow(<Icon type="batchExport" size="large" />);
+    const wrapper = render(<Icon type="batchExport" size="large" />);
     expect(wrapper).toMatchSnapshot();
   });
 });
