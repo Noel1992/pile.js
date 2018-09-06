@@ -2,7 +2,13 @@
 
 exports[`Button suite render a button 1`] = `
 <Button
-  color="default"
+  block={false}
+  dashed={false}
+  disabled={false}
+  loading={false}
+  reverse={false}
+  size="normal"
+  text={false}
 >
   default
 </Button>

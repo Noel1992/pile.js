@@ -6,6 +6,7 @@
   "scripts": {
     "start": "bisheng start -c ./site/bisheng.config.js",
     "test": "jest",
+    "build:sprite": "gulp",
     "build:docs": "bisheng build --ssr",
     "deploy:docs": "bisheng gh-pages --ssr && rm -rf _site",
     "build": "babel components/ -d lib/",
@@ -60,6 +61,7 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-jest": "^23.4.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
@@ -84,11 +86,13 @@
     "jest": "^23.4.1",
     "lint-staged": "^7.2.0",
     "lodash.uniq": "^4.5.0",
+    "pile-icons": "^0.2.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-test-renderer": "^16.4.1",
     "rimraf": "^2.4.3",
-    "standard-version": "^4.4.0"
+    "standard-version": "^4.4.0",
+    "svg-sprite-loader": "^3.9.2"
   },
   "peerDependencies": {
     "react": ">=16.0.0",
