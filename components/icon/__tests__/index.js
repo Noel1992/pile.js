@@ -10,4 +10,8 @@ describe('Button suite', () => {
     const wrapper = shallow(<Icon type="artboardAdd" />);
     expect(wrapper).toMatchSnapshot();
   });
+  it('render a big icon', () => {
+    const wrapper = shallow(<Icon type="batchExport" size="large" />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
