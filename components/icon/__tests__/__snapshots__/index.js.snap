@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button suite render a big icon 1`] = `
+<Icon
+  size="large"
+  type="batchExport"
+/>
+`;
+
+exports[`Button suite render a bigger icon 1`] = `
+<Icon
+  size="bigger"
+  type="batchExport"
+/>
+`;
+
 exports[`Button suite render a icon 1`] = `
 <Icon
   type="artboardAdd"
