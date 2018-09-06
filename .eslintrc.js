@@ -6,7 +6,8 @@
       "react/jsx-one-expression-per-line": 0,
     },
     "env": {
-      "jest": true
+      "jest": true,
+      "browser": true
     }
 };
 
