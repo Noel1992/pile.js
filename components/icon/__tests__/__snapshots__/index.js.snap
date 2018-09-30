@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button suite render a big icon 1`] = `
+<svg
+  class="sc-bdVaJa dQMMQP"
+>
+  <use
+    href="#batchExport"
+  />
+</svg>
+`;
+
+exports[`Button suite render a icon 1`] = `
+<Icon
+  type="artboardAdd"
+/>
+`;

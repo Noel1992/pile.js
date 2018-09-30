@@ -30,8 +30,8 @@ const changeColor = (colors) => {
   return { ...colors, color: colors['background-color'], 'background-color': colors.color };
 };
 
-const getStyles = ({ type, reverse }) => {
-  let colors = buttonTheme.colorScheme[type] || buttonTheme.colorScheme.normal;
+const getStyles = ({ typeStyle, reverse }) => {
+  let colors = buttonTheme.colorScheme[typeStyle] || buttonTheme.colorScheme.normal;
 
   colors = humps.decamelizeKeys(colors, { separator: '-' });
 
@@ -80,8 +80,8 @@ const ButtonStyled = styled.button`
 `;
 
 
-const Button = ({ children, ...props }: PropTypes) => (
-  <ButtonStyled {...props}>
+const Button = ({ type, children, ...props }: PropTypes) => (
+  <ButtonStyled typeStyle={type} {...props}>
     {children}
   </ButtonStyled>
 );

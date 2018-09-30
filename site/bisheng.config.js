@@ -1,6 +1,7 @@
 const path = require('path');
 
 const isDev = process.env.NODE_ENV === 'development';
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
   source: {
@@ -26,6 +27,30 @@ module.exports = {
     conf.resolve.alias = {
       'pile-ui': path.join(process.cwd(), 'components'),
     };
+
+    config.module.rules = config.module.rules.filter(rule => !/\.svg/.test(rule.test));
+
+    // console.log('svgRule:', svgRule);
+    config.module.rules.push({
+      test: /\.svg$/,
+      include: [/node_modules\/pile-icons/],
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: '[name]',
+            // extract: true,
+          },
+        },
+      ],
+    },
+    {
+      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+      exclude: [/node_modules\/pile-icons/],
+      loader: 'url-loader?limit=10000&minetype=image/svg+xml',
+    });
+
+    config.plugins.push(new SpriteLoaderPlugin());
 
     if (isDev) {
       conf.devtool = 'source-map';
