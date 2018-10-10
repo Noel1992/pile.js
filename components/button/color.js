@@ -16,7 +16,7 @@ const dashed = '#d9d9d9';
 const transparent = '#0000';
 
 // common variables
-export const lineHeight = 1.5;
+export const lineHeight = 1;
 
 export const fontSizeBase = rem('14px');
 export const fontSizeLarge = rem('18px');

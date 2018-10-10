@@ -30,13 +30,14 @@ const sizeProps = ({ size }) => {
 };
 
 const IconStyled = styled.svg`
-  verticalAlign: -0.15em;
+  margin-top: -0.15em;
   fill: currentColor;
   overflow: hidden;
+  vertical-align: middle;
   ${sizeProps}
 `;
 
-const Icon = ({ type, svg, ...props }:PropTypes) => (
+const Icon = ({ type, svg, ...props }) => (
   <IconStyled {...props} viewBox={svg && svg.viewBox}>
     <use xlinkHref={`#${type || svg.id}`} />
   </IconStyled>

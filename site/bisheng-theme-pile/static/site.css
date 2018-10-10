@@ -230,3 +230,7 @@ html, body {
 .demo-button button {
   margin-bottom: 10px;
 }
+
+.example {
+  padding: 3px;
+}

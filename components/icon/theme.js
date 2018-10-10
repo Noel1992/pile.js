@@ -5,8 +5,8 @@
 
 import { rem } from 'polished';
 
-export const small = rem('24px');
+export const small = rem('12px');
 
-export const base = rem('32px');
+export const base = rem('16px');
 
-export const large = rem('48px');
+export const large = rem('24px');

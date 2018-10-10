@@ -301,6 +301,36 @@ ReactDOM.render(
 );
 ```
 
+### icon
+
+> 带icon图标的button
+
+**场景** : 禁用按钮点击事件
+
+```jsx harmony
+import React from 'react';
+import {Button, Icon} from 'pile-ui'
+import {leftSvg, rightSvg, search2Svg, editorSvg, deleteSvg} from 'pile-icons'
+
+ReactDOM.render(
+  <div>
+    <Button disabled>Normal</Button>{' '}
+    <Button icon={<Icon type='artboardAddSvg' />} type='primary' disabled>Primary</Button>{' '}
+    <Button><Icon svg={leftSvg} />上一页</Button>{' '}
+    <Button><Icon svg={rightSvg} />下一页</Button>{' '}
+    <Button icon={<Icon svg={search2Svg} />} type='primary' disabled>Primary</Button>{' '}
+    <Button type='success'><Icon svg={search2Svg} />{' '}搜索</Button>{' '}
+    <Button><Icon svg={editorSvg} /></Button>{' '}
+    <Button><Icon svg={deleteSvg} /></Button>{' '}
+    <Button type='success' disabled>Success</Button>{' '}
+    <Button type='info' disabled>Info</Button>{' '}
+    <Button type='warning' disabled>Warning</Button>{' '}
+    <Button type='danger' disabled>Danger</Button>{' '}
+  </div>,
+  mountNode
+);
+```
+
 
 ## API
 
@@ -313,8 +343,8 @@ ReactDOM.render(
 | dashed  | boolean | fase | 按钮设置为dashed状态，需要设置reverse=true，保证background为'#fff' |
 | text  | boolean | false | 按钮设置为纯文本按钮 |
 | size | one of `large`, `small`, `normal`  |  normal    | 组件的大小 |
-| block | boolean  |  false  | 块状的形式沾满父级元素 |
-| icon | string | - | 图标classname |
+| block | boolean  |  false  | 块状的形式占满父级元素 |
+| icon | [React.Node](https://flow.org/en/docs/react/types/#toc-react-node) | - | 图标类 |
 | loading  | Boolean | false  | loading效果 |
 | href  | string | -  | 以`a`标签渲染组件   |
 | disabled     | boolean     |  false    | 按钮的禁用状态 |

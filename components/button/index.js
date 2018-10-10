@@ -2,26 +2,14 @@
 /**
  * @author renmaomin@126.com
  */
-import React from 'react';
+import * as React from 'react';
 import styled, { css } from 'styled-components';
 import compose from 'recompose/compose';
 import humps from 'humps';
 import defaultProps from 'recompose/defaultProps';
+import type { HOC } from 'recompose';
 import { buttonTheme } from './color';
 
-type PropTypes = {
-  type: 'primary'|'success'|'info'|'warning'|'danger',
-  reverse: boolean,
-  dashed: boolean,
-  text: boolean,
-  size: 'large'|'normal'|'small',
-  block: boolean,
-  icon: string,
-  loading: boolean,
-  href: string,
-  disabled: boolean,
-  children: any
-};
 
 const changeColor = (colors) => {
   if (!colors) {
@@ -79,14 +67,44 @@ const ButtonStyled = styled.button`
   ${disabledProps};
 `;
 
+const AStyled = styled.a`
+  border: ${buttonTheme.common.borderWidth} solid;
+  font-weight: ${buttonTheme.common.fontWeight};
+  line-height: ${buttonTheme.common.lineHeight};
+  ${sizeProps};
+  ${getStyles};
+  ${getDashed};
+  ${getText};
+  ${blockProps};
+  ${disabledProps};
+`;
 
-const Button = ({ type, children, ...props }: PropTypes) => (
-  <ButtonStyled typeStyle={type} {...props}>
-    {children}
-  </ButtonStyled>
-);
+const Button = ({type, icon, children, ...props}) => {
+  const { href } = props;
+  const ComponentWrapper = href ? AStyled : ButtonStyled;
 
-const loadingHOC = compose(
+  return (
+    <ComponentWrapper typeStyle={type} {...props}>
+      <span>{icon} {children}</span>
+    </ComponentWrapper>
+  );
+};
+
+type PropTypes = {
+  type: 'primary'|'success'|'info'|'warning'|'danger',
+  reverse: boolean,
+  dashed: boolean,
+  text: boolean,
+  size: 'large'|'normal'|'small',
+  block: boolean,
+  icon?: React.Node,
+  loading: boolean,
+  href: string,
+  disabled: boolean,
+  children: any
+};
+
+const enhancer: HOC<*, PropTypes> = compose(
   defaultProps({
     reverse: false,
     dashed: false,
@@ -95,7 +113,8 @@ const loadingHOC = compose(
     block: false,
     loading: false,
     disabled: false,
+    icon: '',
   }),
 );
 
-export default loadingHOC(Button);
+export default enhancer(Button);

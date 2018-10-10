@@ -103,12 +103,12 @@ import * as icons from 'pile-icons'
 
 ReactDOM.render(
   <div>
-    <Icon svg={icons.contactPhone} />{' '}
-    <Icon svg={icons.car} />{' '}
-    <Icon svg={icons.editor} />{' '}
-    <Icon svg={icons.tripStar} />{' '}
-    <Icon svg={icons.user} />{' '}
-    <Icon svg={icons.wallet} />{' '}
+    <Icon svg={icons.contactPhoneSvg} />{' '}
+    <Icon svg={icons.carSvg} />{' '}
+    <Icon svg={icons.editorSvg} />{' '}
+    <Icon svg={icons.tripStarSvg} />{' '}
+    <Icon svg={icons.userSvg} />{' '}
+    <Icon svg={icons.walletSvg} />{' '}
   </div>,
   mountNode
 );
@@ -117,16 +117,16 @@ ReactDOM.render(
 ```jsx
 import React from 'react';
 import {Icon} from 'pile-ui'
-import {contactPhone, car, editor, tripStar, user, wallet} icons from 'pile-icons'
+import {contactPhoneSvg, carSvg, editorSvg, tripStarSvg, userSvg, walletSvg} from 'pile-icons'
 
 ReactDOM.render(
   <div>
-    <Icon svg={contactPhone} />{' '}
-    <Icon svg={car} />{' '}
-    <Icon svg={editor} />{' '}
-    <Icon svg={tripStar} />{' '}
-    <Icon svg={user} />{' '}
-    <Icon svg={wallet} />{' '}
+    <Icon svg={contactPhoneSvg} />{' '}
+    <Icon svg={carSvg} />{' '}
+    <Icon svg={editorSvg} />{' '}
+    <Icon svg={tripStarSvg} />{' '}
+    <Icon svg={userSvg} />{' '}
+    <Icon svg={walletSvg} />{' '}
   </div>,
   mountNode
 );

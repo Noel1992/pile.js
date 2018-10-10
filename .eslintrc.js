@@ -1,5 +1,5 @@
  module.exports = {
-    "extends": "airbnb",
+    "extends": "react-app",
     "parser": "babel-eslint",// 使用非默认的 babel-eslint 作为代码解析器. 这样 eslint 就能识别 babel 语法的代码
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
