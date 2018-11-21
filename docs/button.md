@@ -19,7 +19,7 @@ import {Button} from 'pile-ui'
 
 ReactDOM.render(
   <div>
-    <Button>Normal</Button>{' '}
+    <Button>Normal12</Button>{' '}
     <Button type='primary'>Primary</Button>{' '}
     <Button type='success'>Success</Button>{' '}
     <Button type='info'>Info</Button>{' '}

@@ -3,6 +3,8 @@ const path = require('path');
 const isDev = process.env.NODE_ENV === 'development';
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
+console.log('[env]: ', process.env.NODE_ENV)
+
 module.exports = {
   source: {
     components: './components',
@@ -21,7 +23,7 @@ module.exports = {
     // hideBisheng: true,
     github: 'https://github.com/didi/pile.js',
   },
-  root: '/',
+  root: process.env.NODE_ENV === 'virtual' ?  '/pile-docs/' : '/',
   webpackConfig(config) {
     const conf = config;
     conf.resolve.alias = {
@@ -52,9 +54,7 @@ module.exports = {
 
     config.plugins.push(new SpriteLoaderPlugin());
 
-    if (isDev) {
-      conf.devtool = 'source-map';
-    }
+    conf.devtool = 'source-map';
     return conf;
   },
 };

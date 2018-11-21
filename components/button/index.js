@@ -3,12 +3,12 @@
  * @author renmaomin@126.com
  */
 import * as React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, withTheme } from 'styled-components';
 import compose from 'recompose/compose';
 import humps from 'humps';
 import defaultProps from 'recompose/defaultProps';
 import type { HOC } from 'recompose';
-import { buttonTheme } from './color';
+import  {buttonTheme} from './theme';
 
 
 const changeColor = (colors) => {
@@ -18,16 +18,18 @@ const changeColor = (colors) => {
   return { ...colors, color: colors['background-color'], 'background-color': colors.color };
 };
 
-const getStyles = ({ typeStyle, reverse }) => {
-  let colors = buttonTheme.colorScheme[typeStyle] || buttonTheme.colorScheme.normal;
+const getStyles = ({ typeStyle, reverse, theme }) => {
+  let colors = theme.colorScheme[typeStyle] || theme.colorScheme.normal;
 
   colors = humps.decamelizeKeys(colors, { separator: '-' });
 
   return reverse ? changeColor(colors) : colors;
 };
 
-const sizeProps = ({ size }) => {
-  const sizes = buttonTheme.sizeScheme[size] || buttonTheme.sizeScheme.normal;
+const sizeProps = ({ size, theme }) => {
+  const sizes = theme.sizeScheme[size] || theme.sizeScheme.normal;
+
+  console.log('styled theme:', theme)
 
   return css`
     padding: ${sizes.paddingX} ${sizes.paddingY};
@@ -41,7 +43,7 @@ const blockProps = ({ block }) => (block ? css`
     width: 100%;
   ` : null);
 
-const disabledProps = ({ disabled }) => (disabled ? { opacity: `${buttonTheme.common.disabledOpacity}` } : null);
+const disabledProps = ({ disabled, theme }) => (disabled ? { opacity: `${theme.common.disabledOpacity}` } : null);
 
 const getText = ({ text }) => {
   if (text) {
@@ -56,9 +58,9 @@ const getText = ({ text }) => {
 const getDashed = ({ dashed }) => (dashed ? { 'border-style': 'dashed' } : null);
 
 const ButtonStyled = styled.button`
-  border: ${buttonTheme.common.borderWidth} solid;
-  font-weight: ${buttonTheme.common.fontWeight};
-  line-height: ${buttonTheme.common.lineHeight};
+  border: ${props => props.theme.common.borderWidth} solid;
+  font-weight: ${props => props.theme.common.fontWeight};
+  line-height: ${props => props.theme.common.lineHeight};
   ${sizeProps};
   ${getStyles};
   ${getDashed};
@@ -68,9 +70,9 @@ const ButtonStyled = styled.button`
 `;
 
 const AStyled = styled.a`
-  border: ${buttonTheme.common.borderWidth} solid;
-  font-weight: ${buttonTheme.common.fontWeight};
-  line-height: ${buttonTheme.common.lineHeight};
+  border: ${props => props.theme.common.borderWidth} solid;
+  font-weight: ${props => props.theme.common.fontWeight};
+  line-height: ${props => props.theme.common.lineHeight};
   ${sizeProps};
   ${getStyles};
   ${getDashed};
@@ -82,6 +84,8 @@ const AStyled = styled.a`
 const Button = ({type, icon, children, ...props}) => {
   const { href } = props;
   const ComponentWrapper = href ? AStyled : ButtonStyled;
+
+  console.log('this.props:', props)
 
   return (
     <ComponentWrapper typeStyle={type} {...props}>
@@ -101,10 +105,12 @@ type PropTypes = {
   loading: boolean,
   href: string,
   disabled: boolean,
-  children: any
+  children: any,
+  theme: any
 };
 
 const enhancer: HOC<*, PropTypes> = compose(
+  withTheme,
   defaultProps({
     reverse: false,
     dashed: false,
@@ -114,6 +120,7 @@ const enhancer: HOC<*, PropTypes> = compose(
     loading: false,
     disabled: false,
     icon: '',
+    theme: buttonTheme
   }),
 );
 
