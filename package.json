@@ -8,7 +8,7 @@
     "test": "jest",
     "build:sprite": "gulp",
     "build:docs": "npm run clean:docs && bisheng build --ssr -c ./site/bisheng.config.js",
-    "build:docs-virtual": "NODE_ENV=virtual npm run clean:docs && bisheng build --ssr -c ./site/bisheng.config.js",
+    "build:docs-virtual": "npm run clean:docs && NODE_ENV=virtual bisheng build --ssr -c ./site/bisheng.config.js",
     "deploy:docs": "./deploy.sh",
     "build": "babel components/ -d lib/",
     "release": "http-server _site -p 3000 -o",
